@@ -1,0 +1,10 @@
+--- #This is template file
+- hosts: devops
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: copy xyz file
+      template: src=xyz.j2 dest=/root/xyz
+

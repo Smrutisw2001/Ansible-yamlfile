@@ -1,0 +1,13 @@
+--- #Loops file for practice
+- hosts: devops
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: add user group
+      user: name={{item}} state=present
+      with_items:
+        - kanhu
+        - abhisek
+        - chinmay

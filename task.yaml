@@ -1,0 +1,11 @@
+--- # my first task
+- hosts: devops
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks: 
+  - name: tree installation
+    yum: pkg=tree state=absent
+
+

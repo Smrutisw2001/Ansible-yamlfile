@@ -1,0 +1,14 @@
+--- # this is  delete of loops3
+- hosts: devops
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: delete user kanhu
+      user: name=kanhu state=absent
+    - name: delete user abhisek    
+      user: name=abhisek state=absent
+    - name: delete user chinmay
+      user: name=chinmay state=absent
+

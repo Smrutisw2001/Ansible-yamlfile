@@ -1,0 +1,17 @@
+--- #this is method of variable file
+- hosts: devops
+  user: ansible
+  become: yes
+  connection: ssh
+
+  vars_files:
+    - abc.yaml
+
+  tasks:
+    - name: install httpd
+      yum: name={{pkg}} state=present
+    - name: copy htttpd
+      copy: src=index.html dest=/var/www/html
+    - name: start httpd
+      service: name={{pkg}} state=started
+  

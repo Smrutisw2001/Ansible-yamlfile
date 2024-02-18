@@ -1,0 +1,2 @@
+- name: install httpd
+  command: yum install httpd -y

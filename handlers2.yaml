@@ -1,0 +1,18 @@
+--- #this is my second handler file
+- hosts: devops
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: stop httpd
+      action: service name=httpd state=stopped
+      notify: uninstall httpd
+
+  handlers:
+    - name: uninstall httpd
+      action: yum name=httpd state=absent
+
+  
+
+

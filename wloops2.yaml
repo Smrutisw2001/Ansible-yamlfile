@@ -1,0 +1,13 @@
+--- # This is reverse of wloops
+- hosts: devops
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: uninstall multiple package
+      yum: name={{item}} state=absent
+      with_items:
+        - httpd
+        - tree
+

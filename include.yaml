@@ -1,0 +1,10 @@
+--- 
+- hosts: devops
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - include: includefile.yaml
+    - include: includefilecopy.yaml
+    - include: includefilestart.yaml

@@ -1,0 +1,15 @@
+--- # this is testing of vault
+- hosts: devops
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: install apache on Debian
+      command: apt-get install apache2 -y
+      when: ansible_os_family == "Debian"
+    - name: install apache on RedHat
+      command: yum install httpd -y
+      when: ansible_os_family == "RedHat"
+
+

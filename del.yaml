@@ -1,0 +1,17 @@
+---
+- hosts: devops
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: user smruti
+      user: name=smruti state=absent
+    - name: kahuu
+      user: name=kanhu state=absent
+    - name: puna
+      user: name=puna state=absent
+    - name: sibu
+      user: name=sibu state=absent
+    - name: mira
+      user: name=mira state=absent

@@ -1,0 +1,23 @@
+--- # this is tags file
+- hosts: devops
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: install httpd
+      yum: name=httpd state=present
+      tags:
+        - install
+    - name: copy index file
+      copy: src=index.html dest=/var/www/html
+      tags:
+        - copy
+    - name: start httpd
+      service: name=httpd state=started
+      tags:
+        - start
+
+
+
+

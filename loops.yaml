@@ -1,0 +1,16 @@
+--- #my first loops file
+- hosts: devops
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: create user gropu
+      user: name={{item}} state=present
+      with_items:
+        - kanhu
+        - smruti
+        - sibu
+        - puna
+        - mira 
+

@@ -1,0 +1,9 @@
+--- # This is role file of pavni maam
+- hosts: devops
+  user: ansible
+  become: yes
+  connection: ssh
+
+  roles:
+    - webserver
+

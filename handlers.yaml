@@ -1,0 +1,17 @@
+--- #my first handler file
+- hosts: devops
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: install httpd
+      yum: name=httpd state=present
+    - name: copy index.html
+      copy: src=index.html dest=/var/www/html
+      notify: restart httpd
+
+  handlers:
+    - name: restart httpd
+      service: name=httpd state=restarted
+        

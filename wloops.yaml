@@ -1,0 +1,15 @@
+--- # This is loops file of pavni maam
+- hosts: devops
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: install multiple package 
+      yum: name={{item}} state=present
+      with_items:
+        - httpd
+        - tree
+        - wget
+
+

@@ -1,0 +1,14 @@
+--- # This is reverse of condition.yaml
+- hosts: devops
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: delete apache on Debian
+      command: apt-get remove apache2 -y
+      when: ansible_os_family== "Debian"
+    - name: delete apache on RedHat
+      command: yum remove httpd -y
+      when: ansible_os_family== "RedHat"
+

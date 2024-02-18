@@ -1,0 +1,17 @@
+--- # this is revers of vars_prompt
+- hosts: devops
+  user: ansible
+  become: yes
+  connection: ssh
+
+  vars_prompt:
+    - name: pkg
+      prompt: enter package name
+      private: yes
+
+  tasks:
+    - name: stop httpd
+      service: name={{pkg}} state=stopped
+    - name: uninstall httpd
+      yum: name={{pkg}} state=absent
+

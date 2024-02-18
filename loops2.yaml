@@ -1,0 +1,15 @@
+--- #my second loops file for reverse
+- hosts: devops
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: delete users
+      action: user name={{item}} state=absent
+      with_items:
+        - kanhu
+          smruti
+          sibu
+          puna
+          mira

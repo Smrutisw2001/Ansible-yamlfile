@@ -1,0 +1,15 @@
+--- # this is second variable file for reverse
+- hosts: devops
+  user: ansible
+  become: yes
+  connection: ssh
+
+  vars:
+  - pkg: httpd
+  
+  tasks:
+  - name: stop httpd
+    action: service name={{pkg}} state=stopped
+  - name: uninstall httpd
+    action: yum name={{pkg}} state=absent
+

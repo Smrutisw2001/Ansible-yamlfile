@@ -1,0 +1,17 @@
+--- # my first variable file
+- hosts: devops
+  user: ansible
+  become: yes
+  connection: ssh
+
+  vars: 
+  - pkg: httpd
+
+  tasks: 
+  - name: install httpd
+    yum: name={{pkg}} state=present
+  - name: copy index.html file
+    copy: src=index.html dest=/var/www/html
+  - name: start httpd
+    service: name={{pkg}} state=started
+

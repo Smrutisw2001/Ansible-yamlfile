@@ -1,0 +1,15 @@
+--- #this is varsfile reverse
+- hosts: devops
+  user: ansible
+  become: yes
+  connection: ssh
+
+  vars_files:
+    - abc.yaml
+
+  tasks:
+    - name: stop httpd
+      service: name={{pkg}} state=stopped
+    - name: uninstall httpd
+      yum: name={{pkg}} state=absent
+

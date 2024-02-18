@@ -1,0 +1,15 @@
+--- # reverse tag
+- hosts: devops
+  user: ansible
+  become: yes
+  connection: ssh
+
+  tasks:
+    - name: stop httpd
+      action: service name=httpd state=stopped
+      tags:
+        - stop
+    - name: remove httpd
+      command: yum remove httpd -y
+      tags:
+        - remove
